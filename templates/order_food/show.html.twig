@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order Food{% endblock %}
+
+{% block body %}
+    <h1>Order</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ order_food.id }}</td>
+            </tr>
+            <tr>
+                <th>Customer of Bill</th>
+                <td>{{ order_food.Bill.customer.name }}</td>
+            </tr>
+            <tr>
+                <th>Food</th>
+                <td>{{ order_food.Food.Name }}</td>
+            </tr>
+            <tr>
+                <th>OrderDate</th>
+                <td>{{ order_food.OrderDate ? order_food.OrderDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ order_food.Quantity }}</td>
+            </tr>
+            <tr>
+                <th>OrderPrice</th>
+                <td>{{ order_food.OrderPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><a class="asm" href="{{ path('order_food_index') }}">Back to list</a></p>
+
+    <p><a class="asm" href="{{ path('order_food_edit', {'id': order_food.id}) }}">Edit</a></p>
+
+    <h4>{{ include('order_food/_delete_form.html.twig') }}</h4>
+{% endblock %}

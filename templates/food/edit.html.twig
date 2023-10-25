@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Food{% endblock %}
+
+{% block body %}
+    <h1>Edit Food</h1>
+
+    {{ include('food/form.html.twig', {'button_label': 'Update'}) }}
+
+    <p><a class="asm" href="{{ path('food_index') }}">back to list</a></p>
+
+    <h4>{{ include('food/delete_form.html.twig') }}</h4>
+{% endblock %}

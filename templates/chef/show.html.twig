@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chef{% endblock %}
+
+{% block body %}
+    <h1>Chef</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chef.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ chef.Name }}</td>
+            </tr>
+            <tr>
+                <th>BirthDate</th>
+                <td>{{ chef.BirthDate ? chef.BirthDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ chef.Address }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ chef.Phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><a class="asm" href="{{ path('chef_index') }}">Back to list</a><p>
+
+    <p><a class="asm" href="{{ path('chef_edit', {'id': chef.id}) }}">Edit</a><p>
+
+    <h4>{{ include('chef/delete_form.html.twig') }}</h4>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chef{% endblock %}
+
+{% block body %}
+    <h1>Chef List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>BirthDate</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chef in chefs %}
+            <tr>
+                <td>{{ chef.id }}</td>
+                <td>{{ chef.Name }}</td>
+                <td>{{ chef.BirthDate ? chef.BirthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ chef.Address }}</td>
+                <td>{{ chef.Phone }}</td>
+                <td>
+                    <a class="asm" href="{{ path('chef_show', {'id': chef.id}) }}">Show</a>
+                    <a class="asm" href="{{ path('chef_edit', {'id': chef.id}) }}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+         {% endfor %}
+    </table>
+
+    <p><a class="asm" href="{{ path('chef_new') }}">Create new</a><p>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+{% block topmenu %}
+	<header>
+	<ul>
+		<li><a href="{{ path('customer_index') }}">Customer</a></li>
+		<li><a href="{{ path('chef_index') }}">Chef</a></li>
+		<li><a href="{{ path('food_index') }}">Food</a></li>
+		<li><a href="{{ path('bill_index') }}">Bill</a></li>
+		<li><a href="{{ path('order_food_index') }}">Order</a></li>
+	</ul>
+	<h1> Restaurant System Managament </h1>
+	</header>
+{% endblock %}
+</html>
+
